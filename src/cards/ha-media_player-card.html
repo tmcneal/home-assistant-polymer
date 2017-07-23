@@ -192,6 +192,30 @@
           disabled='[[playerObj.isOff]]'
           on-tap='handleNext'
         ></paper-icon-button>
+        <paper-icon-button
+          icon='mdi:chevron-up'
+          invisible$='[[!playerObj.supportsDirectionButtons]]'
+          disabled='[[playerObj.isOff]]'
+          on-tap='handleNavigateUp'
+        ></paper-icon-button>
+        <paper-icon-button
+          icon='mdi:chevron-down'
+          invisible$='[[!playerObj.supportsDirectionButtons]]'
+          disabled='[[playerObj.isOff]]'
+          on-tap='handleNavigateDown'
+        ></paper-icon-button>
+        <paper-icon-button
+          icon='mdi:chevron-left'
+          invisible$='[[!playerObj.supportsDirectionButtons]]'
+          disabled='[[playerObj.isOff]]'
+          on-tap='handleNavigateLeft'
+        ></paper-icon-button>
+        <paper-icon-button
+          icon='mdi:chevron-right'
+          invisible$='[[!playerObj.supportsDirectionButtons]]'
+          disabled='[[playerObj.isOff]]'
+          on-tap='handleNavigateRight'
+        ></paper-icon-button>
       </div>
 
       <paper-icon-button
@@ -357,6 +381,26 @@ Polymer({
   handleTogglePower: function (ev) {
     ev.stopPropagation();
     this.playerObj.togglePower();
+  },
+
+  handleNavigateUp: function (ev) {
+    ev.stopPropagation();
+    this.playerObj.navigateUp();
+  },
+
+  handleNavigateDown: function (ev) {
+    ev.stopPropagation();
+    this.playerObj.navigateDown();
+  },
+
+  handleNavigateLeft: function (ev) {
+    ev.stopPropagation();
+    this.playerObj.navigateLeft();
+  },
+  
+  handleNavigateRight: function (ev) {
+    ev.stopPropagation();
+    this.playerObj.navigateRight();
   },
 });
 </script>

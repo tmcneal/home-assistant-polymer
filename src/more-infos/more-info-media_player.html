@@ -234,6 +234,11 @@ Polymer({
       value: false,
     },
 
+    supportsNavigation: {
+      type: Boolean,
+      value: false,
+    },
+
   },
 
   HAS_MEDIA_STATES: ['playing', 'paused', 'unknown'],
@@ -257,6 +262,8 @@ Polymer({
       this.supportsVolumeButtons = (newVal.attributes.supported_features & 1024) !== 0;
       this.supportsSelectSource = (newVal.attributes.supported_features & 2048) !== 0;
       this.supportsPlay = (newVal.attributes.supported_features & 16384) !== 0;
+      this.supportsNavigation = (newVal.attributes.supported_features & 65536) !== 0;
+  }
 
       if (newVal.attributes.source_list !== undefined) {
         this.sourceIndex = newVal.attributes.source_list.indexOf(this.source);
